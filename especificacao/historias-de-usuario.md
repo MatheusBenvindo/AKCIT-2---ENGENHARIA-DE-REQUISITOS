@@ -4,10 +4,10 @@
 Para este projeto, o melhor artefato de especificação é a abordagem de Histórias de Usuário com Critérios de Aceitação em formato BDD.
 
 ### Justificativa
-- A solução possui múltiplos perfis de usuário com necessidades distintas;
-- O foco do sistema está no fluxo de negócio e na experiência do usuário;
-- Há regras de negócio que mudam por evento e por perfil;
-- O artefato facilita comunicação com stakeholders e validação rápida das entregas.
+- a solução possui múltiplos perfis de usuário com necessidades distintas;
+- o foco do sistema está no fluxo de negócio e na experiência do usuário;
+- há regras de negócio que variam por evento e por perfil;
+- o artefato facilita comunicação com stakeholders e validação rápida das entregas.
 
 ## 2. Histórias de Usuário
 

@@ -61,13 +61,13 @@ O sistema deve notificar o participante sobre eventos relevantes do fluxo de ins
 
 ## 3. Decisões pendentes de negócio
 A organização ainda precisa confirmar as seguintes regras antes da implementação final:
-- Prazo máximo para cancelamento de inscrição;
-- Política de reembolso para cada tipo de evento;
-- Critério de elegibilidade para emissão automática de certificado;
-- Mecanismo de notificação (e-mail, SMS, WhatsApp, push ou outro);
-- Tempo de retenção da vaga durante o checkout;
-- Critério de conflito de horários entre atividades;
-- Dados que o palestrante pode visualizar além do nome e da atividade.
+- prazo máximo para cancelamento de inscrição;
+- política de reembolso para cada tipo de evento;
+- critério de elegibilidade para emissão automática de certificado;
+- mecanismo de notificação (e-mail, SMS, WhatsApp, push ou outro);
+- tempo de retenção da vaga durante o checkout;
+- critério de conflito de horários entre atividades;
+- dados que o palestrante pode visualizar além do nome e da atividade.
 
 ## 4. Observação
 Essas regras são fundamentais para a consistência do sistema e devem ser formalizadas em documento de negócio antes do início do desenvolvimento, para reduzir retrabalho e conflitos de interpretação.

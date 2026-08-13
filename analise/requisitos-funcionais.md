@@ -1,153 +1,97 @@
-# Requisitos Funcionais - Sistema de Gestão de Eventos (Eventus)
+# Requisitos Funcionais - Plataforma de Monitoramento e Análise de Editais para Concursos Públicos de TI
 
-## 1. Introdução
-Este documento reúne os requisitos funcionais do sistema, com foco nas necessidades dos participantes, organizadores, equipe financeira, palestrantes e equipe de TI. Os requisitos abaixo foram escritos de forma objetiva, verificável e alinhada às necessidades identificadas na elicitação.
+## 1. Objetivo
+Este documento descreve os requisitos funcionais da plataforma, com foco em rastreamento de editais, alertas personalizados e acompanhamento de retificações para candidatos e usuários interessados em concursos públicos de TI.
 
 ## 2. Requisitos Funcionais
 
-### RF-01 - Consulta pública de eventos
-O sistema deve permitir que qualquer usuário acessível ao público visualize a lista de eventos disponíveis, incluindo informações como nome, data, horário, local, categoria, vagas disponíveis, tipo (gratuito ou pago) e status do evento.
+### RF-01 - Cadastro de edital
+O sistema deve permitir o cadastro de um novo edital com dados básicos, como título, área, banca examinadora, datas relevantes, status e fonte oficial.
 
-Critério de verificação:
-- A interface deve exibir eventos ativos e futuros;
-- A busca deve filtrar por data, categoria, tipo de evento e disponibilidade;
-- O sistema deve informar corretamente a quantidade de vagas restantes.
+Critérios:
+- o formulário deve validar os campos obrigatórios;
+- o edital deve ser salvo com identificador único;
+- o sistema deve informar ao usuário se o cadastro foi concluído com sucesso.
 
-### RF-02 - Inscrição de participante em evento
-O sistema deve permitir que um participante realize inscrição em um evento disponível, desde que as condições de disponibilidade, pagamento e regras de negócio do evento permitam a inscrição.
+### RF-02 - Consulta de editais
+O sistema deve permitir a visualização de editais em listagem, com filtro por banca, cargo, área, data de publicação e status.
 
-Critério de verificação:
-- A inscrição só é concluída após validação das regras do evento;
-- O sistema deve registrar a inscrição com data e hora de confirmação;
-- O sistema deve impedir inscrição duplicada para o mesmo participante no mesmo evento.
+Critérios:
+- a consulta deve retornar apenas editais ativos ou conforme o filtro aplicado;
+- a interface deve exibir informações principais do edital;
+- usuários devem conseguir abrir os detalhes de um edital selecionado.
 
-### RF-03 - Controle automático de vagas
-O sistema deve controlar a quantidade de vagas disponíveis para cada evento em tempo real e bloquear novas inscrições quando a capacidade for atingida.
+### RF-03 - Filtro por banca examinadora
+O sistema deve permitir que o usuário selecione uma banca examinadora e visualize apenas os editais relacionados à opção escolhida.
 
-Critério de verificação:
-- A contagem de vagas deve refletir inscrições confirmadas e cancelamentos realizados;
-- O sistema deve impedir inscrições além da capacidade definida;
-- O evento deve indicar corretamente status de lotado.
+Critérios:
+- o filtro deve estar disponível na interface de busca;
+- o sistema deve considerar a banca examinadora como critério principal de consulta;
+- quando não houver resultados, o sistema deve informar que não foram encontrados editais.
 
-### RF-04 - Lista de espera
-Quando um evento estiver lotado, o sistema deve permitir que o participante insira-se em lista de espera e, automaticamente, promove-lo para a vaga assim que houver liberação.
+### RF-04 - Busca por palavra-chave e área
+O sistema deve permitir busca por termos relevantes no contexto dos concursos, como cargo, tecnologia, área de atuação ou palavra-chave específica.
 
-Critério de verificação:
-- O sistema deve registrar a ordem de entrada na lista de espera;
-- A promoção deve ocorrer para o primeiro participante elegível da fila;
-- O participante promovido deve receber notificação da confirmação.
+Critérios:
+- a busca deve considerar termos informados pelo usuário;
+- o sistema deve combinar busca textual com filtros de área e localidade;
+- resultados relevantes devem ser organizados por ordem de correspondência ou atualização.
 
-### RF-05 - Pagamento e confirmação de inscrição
-Para eventos pagos, o sistema deve permitir o processamento do pagamento e confirmar a inscrição somente após a validação do pagamento pela equipe financeira ou pelo próprio fluxo do sistema, conforme a regra do evento.
+### RF-05 - Cadastro de alerta
+O sistema deve permitir que um usuário cadastre um alerta de vaga com critérios de busca, área de interesse, localidade e frequência desejada.
 
-Critério de verificação:
-- O sistema deve exigir pagamento para eventos pagos;
-- A inscrição deve permanecer pendente até a confirmação do pagamento;
-- A confirmação deve gerar registro de pagamento e status de inscrição.
+Critérios:
+- o alerta deve ser persistido após confirmação do cadastro;
+- o sistema deve permitir editar ou excluir alertas cadastrados;
+- ao salvar, o sistema deve exibir mensagem de confirmação.
 
-### RF-06 - Emissão de comprovante de inscrição
-Após a inscrição ou confirmação de pagamento, o sistema deve emitir um comprovante eletrônico para o participante, com dados do evento, valor, data da inscrição e código de confirmação.
+### RF-06 - Notificação de alertas
+Quando um edital atender aos critérios de um alerta cadastrado, o sistema deve disparar notificação ao usuário.
 
-Critério de verificação:
-- O comprovante deve estar disponível imediatamente após a confirmação;
-- O participante deve conseguir visualizar e baixar o comprovante;
-- O comprovante deve conter identificação do evento e do participante.
+Critérios:
+- a notificação deve conter título e referência ao edital relacionado;
+- o sistema deve registrar o envio do alerta;
+- o usuário deve conseguir visualizar o histórico de notificações.
 
-### RF-07 - Cancelamento de inscrição pelo participante
-O participante deve poder cancelar sua própria inscrição, respeitando as regras definidas para o evento e o período de cancelamento.
+### RF-07 - Acompanhamento de retificações
+O sistema deve permitir a visualização do histórico de retificações de um edital, incluindo alterações de data, vaga, banca ou requisitos.
 
-Critério de verificação:
-- O sistema deve permitir cancelamento apenas para inscrições válidas;
-- O cancelamento deve atualizar a contagem de vagas e a lista de espera;
-- O sistema deve registrar a justificativa, quando exigida, ou a ação de cancelamento.
+Critérios:
+- cada retificação deve ser exibida em ordem cronológica;
+- o sistema deve indicar o impacto da alteração;
+- o usuário deve conseguir acessar a retificação diretamente pela tela do edital.
 
-### RF-08 - Bloqueio de cancelamento para eventos específicos
-O organizador deve ser capaz de configurar eventos que não permitam cancelamento após determinado prazo ou em determinadas condições, e o sistema deve bloquear essa ação.
+### RF-08 - Organização por status e categoria
+O sistema deve disponibilizar visão organizada por status, categoria ou tipo de oportunidade para facilitar a priorização do usuário.
 
-Critério de verificação:
-- O sistema deve impedir cancelamentos quando a regra do evento o proíba;
-- A regra deve ser visível ao participante no momento da inscrição;
-- A tentativa de cancelamento inválido deve ser rejeitada com mensagem adequada.
+Critérios:
+- o usuário deve visualizar editais por status ativo, encerrado, cancelado ou retificado;
+- a categorização deve facilitar o acompanhamento e a análise;
+- a organização por status deve ser consistente com a base de dados.
 
-### RF-09 - Reembolso conforme regra do evento
-O sistema deve aplicar regras de reembolso conforme o tipo de evento, data do cancelamento, modalidade de pagamento e política da organização.
+### RF-09 - Visualização de detalhes do edital
+O sistema deve permitir que o usuário visualize detalhes do edital, como objetivo, requisitos, datas, banca, vagas e documentos relacionados.
 
-Critério de verificação:
-- O sistema deve calcular o valor reembolsável de acordo com a regra do evento;
-- O sistema deve registrar a decisão de reembolso ou não reembolso;
-- A equipe financeira deve visualizar os casos elegíveis para análise.
+Critérios:
+- a tela de detalhes deve mostrar informações relevantes do edital;
+- links e documentos devem estar acessíveis quando disponíveis;
+- alterações recentes devem ser destacadas para o usuário.
 
-### RF-10 - Emissão de certificados
-O sistema deve permitir a geração de certificados para participantes que concluíram o evento ou atenderam aos critérios definidos pela organização, como presença mínima ou participação validada.
+### RF-10 - Histórico de acompanhamento
+O sistema deve manter registro de ações do usuário sobre editais, como visualização, marcação de relevância e acompanhamento.
 
-Critério de verificação:
-- O certificado deve ser emitido apenas para participantes elegíveis;
-- O sistema deve permitir visualização e download do certificado;
-- O sistema deve registrar a data de emissão e o evento relacionado.
+Critérios:
+- o histórico deve estar disponível para consulta;
+- os registros devem ser associados ao usuário e ao edital;
+- a funcionalidade deve apoiar organização pessoal e análise de oportunidades.
 
-### RF-11 - Inscrição em workshop no mesmo dia
-O sistema deve permitir que um participante realize inscrições em diferentes atividades do mesmo dia, desde que não haja conflito de horário ou regras específicas do evento que impeçam a sobreposição.
+### RF-11 - Acesso por perfil
+O sistema deve controlar acesso às funcionalidades conforme o perfil do usuário, como candidato, administrador ou operador de conteúdo.
 
-Critério de verificação:
-- O sistema deve detectar conflito de agenda antes da confirmação;
-- A inscrição deve ser bloqueada quando houver sobreposição de horários;
-- O sistema deve informar ao participante a razão da rejeição.
+Critérios:
+- usuários com perfil diferente devem ter permissões específicas;
+- funções administrativas devem estar protegidas por autenticação e autorização;
+- acessos indevidos devem ser bloqueados.
 
-### RF-12 - Gestão de participantes por palestrante
-O palestrante deve poder visualizar a lista de participantes inscritos em suas atividades, sem ter acesso completo a dados financeiros ou administrativos do sistema.
-
-Critério de verificação:
-- O palestrante acessa apenas as atividades sob sua responsabilidade;
-- A lista deve conter nome do participante, inscrição e dados relevantes da atividade;
-- O palestrante não deve ver dados sensíveis de pagamento.
-
-### RF-13 - Visualização de inscrições em tempo real para o organizador
-O organizador deve visualizar, em tempo real, o total de inscritos e o status das vagas de cada evento sob sua gestão.
-
-Critério de verificação:
-- O painel deve atualizar após cada inscrição, cancelamento ou promoção da lista de espera;
-- O total exibido deve refletir o estado atual do evento;
-- O organizador deve conseguir identificar eventos lotados e em lista de espera.
-
-### RF-14 - Eventos simultâneos
-O sistema deve suportar a gestão de múltiplos eventos ocorrendo em paralelo, com controle independente de vagas, inscrições e pagamentos.
-
-Critério de verificação:
-- O sistema deve manter contagem isolada por evento;
-- O cadastro de um evento não deve interferir no outro;
-- A fila de espera deve operar de forma independente por evento.
-
-### RF-15 - Notificações ao participante
-O sistema deve enviar notificações ao participante sobre confirmação de inscrição, cancelamento, lista de espera, promoção, reembolso e emissão de certificado, conforme o canal definido pela organização.
-
-Critério de verificação:
-- A notificação deve ser disparada em condições específicas do fluxo;
-- O sistema deve registrar o envio e o status da mensagem;
-- O participante deve receber confirmação do evento de interesse.
-
-### RF-16 - Gestão de eventos e atividades pelo organizador
-O organizador deve poder cadastrar, alterar, ativar e desativar eventos, além de definir regras de vagas, pagamentos, cancelamento e certificados para cada atividade.
-
-Critério de verificação:
-- O cadastro deve permitir dados obrigatórios do evento;
-- O organizador deve alterar regras sem afetar outros eventos;
-- O sistema deve manter histórico das mudanças relevantes.
-
-### RF-17 - Acesso e visão por perfil
-O sistema deve disponibilizar funcionalidades específicas conforme o perfil do usuário: participante, organizador, financeiro, palestrante e equipe de TI.
-
-Critério de verificação:
-- Cada perfil deve acessar apenas os módulos relevantes;
-- A autenticação deve identificar corretamente o perfil do usuário;
-- A operação fora do escopo do perfil deve ser negada.
-
-### RF-18 - Logs e rastreabilidade de ações
-O sistema deve registrar eventos importantes, como inscrição, cancelamento, confirmação de pagamento, promoção de lista de espera e emissão de certificado.
-
-Critério de verificação:
-- O sistema deve manter histórico de ações realizadas;
-- A auditoria deve permitir consulta por usuário, evento e data;
-- As alterações relevantes devem estar associadas ao responsável.
-
-## 3. Observações
-Os requisitos acima refletem a elicitação e foram estruturados para evitar ambiguidades. Ainda existem decisões de negócio que precisam ser confirmadas pela organização antes da implementação final, conforme descrito em [duvidas-e-lacunas.md](duvidas-e-lacunas.md).
+## 3. Resumo
+Os requisitos funcionais acima cobrem as necessidades centrais da plataforma: cadastro e consulta de editais, busca e filtros, alertas personalizados, acompanhamento de retificações e suporte à decisão do usuário em relação a oportunidades de concursos públicos de TI.
