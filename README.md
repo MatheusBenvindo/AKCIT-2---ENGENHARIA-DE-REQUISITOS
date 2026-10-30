@@ -1,3 +1,12 @@
+<!-- course-navigation:start -->
+<p>
+  <a href="https://github.com/MatheusBenvindo/MatheusBenvindo/blob/main/CURSOS.md#engenharia-e-akcit"><img alt="Índice de materiais" src="https://img.shields.io/badge/MATERIAIS-Engenharia%20e%20AKCIT-005DAA?style=flat-square" /></a>
+</p>
+
+[← Catálogo de cursos e projetos](https://github.com/MatheusBenvindo/MatheusBenvindo/blob/main/CURSOS.md) · [Perfil](https://github.com/MatheusBenvindo)
+
+<!-- course-navigation:end -->
+
 # Sistema de Gestão de Eventos - Eventus
 
 ## Visão geral
@@ -44,4 +53,13 @@ Em engenharia de requisitos, essa separação entre o que já está definido e o
 
 ## Conclusão
 A entrega ficou mais sólida porque foi organizada com base em critérios de qualidade de requisitos: completude, consistência, verificabilidade, clareza e rastreabilidade. A documentação agora está mais próxima do que uma equipe de desenvolvimento e de negócio precisaria para iniciar a solução com menos retrabalho e menos interpretação equivocada.
+
+
+
+## Navegação dos materiais
+
+| Pasta ou arquivo | Acesso |
+|---|---|
+| analise | [Abrir pasta](./analise) |
+| especificacao | [Abrir pasta](./especificacao) |
 
